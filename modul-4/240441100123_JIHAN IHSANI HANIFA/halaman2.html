@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<style>
+  body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+
+  body.dark-mode input.form-control {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+  }
+
+  body.dark-mode input.form-control::placeholder {
+    color: #aaa;
+  }
+
+  body.dark-mode label,
+  body.dark-mode h2,
+  body.dark-mode p {
+    color: white;
+  }
+
+  body.dark-mode .btn.btn-primary {
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+  }
+
+  body.dark-mode .container {
+    background-color: #1a1a1a;
+  }
+
+  body.dark-mode .container {
+  background-color: #1a1a1a;
+  }
+
+  body.dark-mode .col-md-6.bg-white {
+  background-color: #1a1a1a !important;
+  }
+
+  body.dark-mode .col-md-6.bg-white * {
+  color: white !important;
+  }
+</style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halaman 2 - ByteAcademy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-white d-flex align-items-center justify-content-center min-vh-100">
+
+   <div class="position-absolute top-0 end-0 p-3">
+    <button class="btn btn-sm btn-secondary rounded-pill" id="darkModeToggle">🌙 Mode Gelap</button>
+  </div>
+
+  <div class="container shadow-lg rounded-4 overflow-hidden">
+    <div class="row g-0">
+      
+      <div class="col-md-6  d-flex align-items-center justify-content-center p-4 " style="background-color: blueviolet;">
+        <img src="Gambar 5.png" alt="Ilustrasi belajar" class="img-fluid">
+      </div>
+
+      <div class="col-md-6 bg-white p-5">
+        <div class="mb-4">
+          <img src="logo.png" alt="ByteAcademy" class="mb-3 img-fluid" style="max-width: 150px;">
+          <h2 class="fw-bold text-dark">Mulai Hari Ini</h2>
+          <p class="text-muted small">Menunggu besok? Bisa jadi kamu takkan pernah mulai.</p>
+        </div>
+
+        <form id="signupform">
+          <div class="mb-3">
+            <label class="form-label">Alamat Email</label>
+            <input type="email" class="form-control rounded-pill" placeholder="Masukkan Alamat Email Anda">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Nama Lengkap Anda">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control rounded-pill" placeholder="Masukkan Password Anda">
+          </div>
+          <button type="submit" class="btn btn-primary w-100 rounded-pill fw-semibold" style="background-color: blueviolet;" >Sign Up</button>
+          <button type="button" class="btn btn-outline-secondary w-100 rounded-pill mt-2 d-flex align-items-center justify-content-center gap-2">
+            <img src="ic_google.png" width="20" alt="Google Icon">
+            <span>Sign Up with Google</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  
+<script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+
+    const email = document.querySelector('input[type="email"]').value.trim();
+    const nama = document.querySelector('input[type="text"]').value.trim();
+    const password = document.querySelector('input[type="password"]').value.trim();
+
+    let isValid = true;
+    let errorMsg = "";
+
+    if (!email || !email.includes("@")) {
+      errorMsg += "Email tidak valid.\n";
+      isValid = false;
+    }
+
+    if (!nama) {
+      errorMsg += "Nama tidak boleh kosong.\n";
+      isValid = false;
+    }
+
+    if (!password || password.length < 6) {
+      errorMsg += "Password minimal 6 karakter.\n";
+      isValid = false;
+    }
+
+    if (!isValid) {
+      alert(errorMsg);
+    } else {
+      alert("Form berhasil dikirim!");
+
+    }
+  });
+
+   document.getElementById("darkModeToggle").addEventListener("click", function() {
+      document.body.classList.toggle("dark-mode");
+      this.textContent = document.body.classList.contains("dark-mode") ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+    });
+  </script>
+</script>
+
+</body>
+</html>
